@@ -11,14 +11,12 @@ RUN apt-get install -y git make gcc gfortran wget
 
 USER main
 
-RUN wget https://github.com/JuliaLang/julia/releases/download/v0.4.6/julia-0.4.6-full.tar.gz
-RUN tar -zxvf julia-0.4.6-full.tar.gz
-RUN ls
-RUN pwd
-RUN cd julia-0.4.6
+RUN git clone git://github.com/JuliaLang/julia.git
+RUN cd julia
+RUN git checkout release-0.4
 RUN make
 RUN pwd
-RUN ln -s /users/main/julia-0.4.6-full/julia /usr/local/bin/julia
+RUN ln -s /users/main/julia/julia /usr/local/bin/julia
 RUN hash -r
 
 
