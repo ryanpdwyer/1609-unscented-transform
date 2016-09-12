@@ -8,8 +8,7 @@ USER root
 RUN apt-get update
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:staticfloat/juliareleases
-RUN add-apt-repository ppa:staticfloat/julia-deps
-RUN apt-get update -qq
+RUN apt-get update 
 RUN apt-get install -y julia libnettle4 && apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
