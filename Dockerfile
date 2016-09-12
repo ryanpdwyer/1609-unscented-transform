@@ -13,7 +13,9 @@ USER main
 
 RUN wget https://github.com/JuliaLang/julia/releases/download/v0.4.6/julia-0.4.6-full.tar.gz
 RUN tar -zxvf julia-0.4.6-full.tar.gz
-RUN cd julia-0.4.6-full
+RUN ls
+RUN pwd
+RUN cd julia-0.4.6
 RUN make
 RUN pwd
 RUN ln -s /users/main/julia-0.4.6-full/julia /usr/local/bin/julia
