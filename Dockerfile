@@ -5,6 +5,8 @@ MAINTAINER Ryan Dwyer <ryanpdwyer@gmail.com>
 USER root
 
 # Add Julia dependencies
+RUN apt-get update
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:staticfloat/juliareleases
 RUN add-apt-repository ppa:staticfloat/julia-deps
 RUN apt-get update
