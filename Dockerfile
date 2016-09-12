@@ -6,8 +6,8 @@ USER root
 
 # Add Julia dependencies
 RUN apt-get update
-RUN apt-get -y install build-essential
-RUN apt-get -y install git make gcc gfortran wget
+RUN apt-get install -y build-essential
+RUN apt-get install -y git make gcc gfortran wget
 
 USER main
 
