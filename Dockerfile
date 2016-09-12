@@ -6,14 +6,19 @@ USER root
 
 # Add Julia dependencies
 RUN apt-get update
-RUN apt-get -y install software-properties-common
-RUN add-apt-repository ppa:staticfloat/juliareleases
-RUN apt-get update 
-RUN apt-get install -y julia libnettle4 && apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
-
+RUN apt-get -y install build-essentials
+RUN apt-get -y git make gcc gfortran wget
 
 USER main
+
+RUN wget https://github.com/JuliaLang/julia/releases/download/v0.4.6/julia-0.4.6-full.tar.gz
+RUN tar -zxvf julia-0.4.6-full.tar.gz
+RUN cd julia-0.4.6-full
+RUN make
+RUN pwd
+RUN ln -s /users/main/julia-0.4.6-full/julia /usr/local/bin/julia
+RUN hash -r
+
 
 # Install Julia kernel
 RUN julia -e 'Pkg.add("IJulia")'
