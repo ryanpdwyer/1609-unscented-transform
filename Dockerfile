@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install -y build-essential
 RUN apt-get install -y git make gcc gfortran wget
 RUN apt-get install -y software-properties-common
-RUN apt-get install julia
+RUN apt-get install -y julia
 
 USER main
 
